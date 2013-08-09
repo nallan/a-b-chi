@@ -10,17 +10,25 @@ class ArrayChinese < Array
 
   end
 
-  def self.sort
+  def sort
     max_length = self.max_by(&:length).length
     search_query = '['
     for i in 0..max_length
       unless i == max_length
-        search_query  << "array.index(sort_string[#{i}]), "
+        search_query  << "@characters.index(sort_string[#{i}]), "
       else
-        search_query  << "array.index(sort_string[#{i}])]"
+        search_query  << "@characters.index(sort_string[#{i}])]"
       end
     end
     self.sort_by! { |sort_string| eval(search_query) }
   end
 
+end
+
+class BoPoMoFo < String
+  
+  def initialize
+  
+  end
+  
 end
