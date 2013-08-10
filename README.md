@@ -16,7 +16,7 @@ There are a few extra functions that I plan to implement in the future which inc
 Version
 -
 
-1.1.3
+1.2.4
 
 Further Info
 -----------

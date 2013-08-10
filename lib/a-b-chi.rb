@@ -12,11 +12,13 @@ class ArrayChinese < Array
     @characters = File.read("#{gem_lib}/characters.txt").split("\n")
   end
 
-  def sort
+  def sort(*args)
+    puts args.size
+    puts args.inspect
     self.array_sort_by { |sort_string| eval(get_sort_query) }
   end
 
-  def sort!
+  def sort!(*args)
     self.array_sort_by! { |sort_string| eval(get_sort_query) }
   end
 
