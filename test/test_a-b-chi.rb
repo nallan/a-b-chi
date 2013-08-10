@@ -32,4 +32,11 @@ class ABChiTest < Test::Unit::TestCase
     arr.sort
   end
 
+  def test_return_of_correct_bpmf
+    str = StringChinese.new
+    str < "珍項頇芳"
+    assert_equal "珍(ㄓㄣ)項(ㄒㄧㄤˋ)頇(ㄏㄢ)芳(ㄈㄤ)",
+    str.to_ruby_bpmf
+  end
+
 end

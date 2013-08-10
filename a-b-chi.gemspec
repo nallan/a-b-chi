@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "A gem that allows for the user to sort Chinese Traditional characters like a human (phonetically) rather than like a robot (stroke count)"
   s.authors     = ["Nathanial Allan"]
   s.email       = 'nathanial.allan@gmail.com'
-  s.files       = ["Rakefile", "README.md", "lib/a-b-chi.rb", "lib/characters.txt", "test/test_a-b-chi.rb"]
+  s.files       = ["Rakefile", "README.md", "lib/a-b-chi.rb", "lib/characters.txt", "lib/bopomofo.txt", "test/test_a-b-chi.rb"]
   s.homepage    = 'http://rubygems.org/gems/a-b-chi'
   s.license     = 'MIT'
   s.post_install_message = "ITM!"
