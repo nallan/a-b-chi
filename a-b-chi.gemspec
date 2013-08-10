@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'a-b-chi'
-  s.version     = '1.2.3'
+  s.version     = '1.2.4'
   s.date        = Time.now
   s.summary     = "Chinese Traditional Character Sort"
   s.description = "A gem that allows for the user to sort Chinese Traditional characters like a human (phonetically) rather than like a robot (stroke count)"

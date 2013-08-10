@@ -12,4 +12,24 @@ class ABChiTest < Test::Unit::TestCase
     arr.sort
   end
 
+  def test_blank_array
+    arr = ArrayChinese.new
+    arr.push 
+    assert_equal [], arr.sort
+  end
+
+  def test_english_after_chinese
+    arr = ArrayChinese.new
+    arr.push "雲Z雲", "NallaN", "雲彩雲"
+    assert_equal ["雲彩雲", "雲Z雲", "NallaN"],
+    arr.sort
+  end
+  
+  def test_handling_of_unknown_characters
+    arr = ArrayChinese.new
+    arr.push "Z∂ß", "NallaN", "雲彩雲"
+    assert_equal ["雲彩雲", "NallaN", "Z∂ß"],
+    arr.sort
+  end
+
 end
