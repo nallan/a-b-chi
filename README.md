@@ -43,8 +43,7 @@ firstly require the file in your project
 ```require 'a-b-chi'```
 next you must create a new instance of the ArrayChinese class and populate your array
 ```arr = ArrayChinese.new
-arr.push "李依恬", "李雲帆", "珍項小珍", "瑞芳", "李宗翰"
-```
+arr.push "李依恬", "李雲帆", "珍項小珍", "瑞芳", "李宗翰"```
 finally run the sort method on this. both sort and sort! are supported
 ```arr.sort
 arr.sort!```
