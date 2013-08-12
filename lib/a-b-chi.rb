@@ -1,8 +1,10 @@
 #encoding:utf-8
+
+require 'chinese'
+
 class ArrayChinese < Array
-  alias array_sort sort
-  alias array_sort_by sort_by
   alias array_sort_by! sort_by!
+  alias array_sort_by sort_by
 
   def initialize
     spec = Gem::Specification.find_by_name("a-b-chi")
@@ -11,28 +13,17 @@ class ArrayChinese < Array
     @characters = File.read("#{@gem_lib}/characters.txt").split("\n")
   end
 
-  def sort(*args)
-    process_args(args)
+  def sort
     self.array_sort_by { |sort_string| eval(get_sort_query) }
   end
 
-  def sort!(*args)
+  def sort!
     self.array_sort_by! { |sort_string| eval(get_sort_query) }
   end
 
-#  def sort_by(*args)
-#    puts args.inspect  
-#    self.array_sort_by! { |sort_string| eval(get_sort_query) }
-#  end
-
 private
 
-  def process_args(*args)
-    
-  end
-
   def get_sort_query
-#    max_length = self.max_by(&:length).length
     sort_query = '['
       (0..self.max_by(&:length).length).each { |i| sort_query  << " @characters.index(sort_string[#{i}])," }
       sort_query.chop!
@@ -42,9 +33,8 @@ private
 
 end
 
-
 class StringChinese < String
-  
+
   def initialize
     spec = Gem::Specification.find_by_name("a-b-chi")
     gem_root = spec.gem_dir
@@ -53,9 +43,16 @@ class StringChinese < String
     @bpmf = File.read("#{@gem_lib}/bopomofo.txt").split("\n")
   end
 
-  def to_ruby_bpmf
-    bopomofoed = ''
-    (0..self.length).each { |i| bopomofoed << "self[#{i}](@bpmf.index(@characters.index[self[#{i}]]))"}
+  def to_ruby_unmarked
+    unmarked = ''
+    (0..(self.size-1)).each { |i| unmarked << "#{self[i]}(#{@bpmf[@characters.index(self[i])]})"} 
+    return unmarked
+  end
+
+  def to_ruby_markup
+    markup = '<p style="writing-mode: tb-rl"><ruby>'
+    (0..(self.size-1)).each { |i| markup << "<rb>#{self[i]}</rb><rp>(</rp><rt>#{@bpmf[@characters.index(self[i])]}</rt><rp>)</rp>"}
+    markup << '</p></ruby>'
   end
 
 end

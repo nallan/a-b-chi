@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
   s.name        = 'a-b-chi'
-  s.version     = '1.2.4'
+  s.version     = '2.0.0'
   s.date        = Time.now
-  s.summary     = "Chinese Traditional Character Sort"
-  s.description = "A gem that allows for the user to sort Chinese Traditional characters like a human (phonetically) rather than like a robot (stroke count)"
+  s.summary     = "Chinese Traditional Sorter and Manipulator"
+  s.description = "A convenient gem that will allow you to sort arrays and activerecord relations without needing to mess with set-months-ago database collation settings."
   s.authors     = ["Nathanial Allan"]
   s.email       = 'nathanial.allan@gmail.com'
-  s.files       = ["Rakefile", "README.md", "lib/a-b-chi.rb", "lib/characters.txt", "lib/bopomofo.txt", "test/test_a-b-chi.rb"]
+  s.files       = ["Rakefile", "README.md", "lib/a-b-chi.rb", "lib/chinese.rb", "lib/characters.txt", "lib/bopomofo.txt", "test/test_a-b-chi.rb", "spec/a-b-chi_spec.rb"]
   s.homepage    = 'http://rubygems.org/gems/a-b-chi'
   s.license     = 'MIT'
-  s.post_install_message = "ITM!"
+  #s.post_install_message = "ITM!"
 end

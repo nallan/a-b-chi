@@ -32,11 +32,18 @@ class ABChiTest < Test::Unit::TestCase
     arr.sort
   end
 
-  def test_return_of_correct_bpmf
+  def test_return_of_correct_non_markup
     str = StringChinese.new
-    str < "珍項頇芳"
-    assert_equal "珍(ㄓㄣ)項(ㄒㄧㄤˋ)頇(ㄏㄢ)芳(ㄈㄤ)",
-    str.to_ruby_bpmf
+    str << "珍項頇芳"
+    assert_equal "珍(ㄓㄢ)項(ㄩㄣˇ)頇(ㄓㄨˋ)芳(ㄐㄧˊ)",
+    str.to_ruby_unmarked
   end
+
+    def test_return_of_correct_markup
+      str = StringChinese.new
+      str << "珍項頇芳"
+      assert_equal "<ruby><rb>珍</rb><rp>(</rp><rt>ㄓㄢ</rt><rp>)</rp><rb>項</rb><rp>(</rp><rt>ㄩㄣˇ</rt><rp>)</rp><rb>頇</rb><rp>(</rp><rt>ㄓㄨˋ</rt><rp>)</rp><rb>芳</rb><rp>(</rp><rt>ㄐㄧˊ</rt><rp>)</rp></ruby>",
+      str.to_ruby_markup
+    end
 
 end
